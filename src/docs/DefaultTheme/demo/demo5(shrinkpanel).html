@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('预约须知');
+				titleBar.canBack(true, true);
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<div class='rbk-shrinkpanel' text='预约须知' rbk-role='noshrink'>
+				<div class='rbk-panelcontent'>
+					<p>1 、预约说明 <br>预约挂号是医院为不同就诊人群提供的一项便民措施，预约原则是"先预约，先确认"。 目前医院可预约的专家号或普通号，以服务电话查询或网站公示为准。</p>
+					<p>2、 实名制预约 <br>采用“实名制”，患者须提供真实姓名及身份证号、年龄、性别和手机号等信息。用户就诊当天取号时出示的身份证与健康卡信 息必须与预约时提供的一致，否则医院有权不予办理挂号业务。</p>
+					<p>3、 预约时段<br>您可以选择自已就诊的时段，提前15分钟到达医院确认身份。按时就诊时一般可以享有优先就诊的便利，具体规定由医院制定。</p>
+					<p>4、 预约挂号费用 <br>作为医院的一项便民措施，预约挂号暂时不收取预约费用，具体费用由医院自行制定。</p>
+				</div>
+			</div>
+			<div class="rbk-fixbtn rbk-nobkcolor">
+				<button class="rbk-btn"><span class='icon-add' style="font-size: 14px;"></span> 预约就诊人</button>
+			</div>
+		</div>
+	</body>
+</html>

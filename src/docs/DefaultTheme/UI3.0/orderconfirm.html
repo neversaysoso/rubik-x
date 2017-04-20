@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="format-detection" content="telephone=no,email=no,adress=no">
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+		
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('预约信息确认');
+				titleBar.canBack(true, true);
+				var content = rbk.getCmp('content');
+				var form = content.down('form');
+				var lbl = form.down('#doctorName');
+				form.doLayout(testData.UI2orderConfirmLayout);
+				
+				form.setVal(testData.orderConfirmVal);
+				
+				var btn = content.down('#tijiao');
+				btn.bindClick(function(){
+					var view = new rbk.view();
+					alert('预约成功！',function(){
+						view.open('orderSuccess.html')
+					})
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<form class="rbk-form" rbk-role='card'>
+				<div id="reserveinfo" class="rbk-cmp">
+					<div class="rbk-subtitle">就诊信息</div>
+				</div>
+				<div id="reserveuser" class="rbk-cmp">
+					<div class="rbk-subtitle">预约人</div>
+				</div>
+			</form>
+			<button class="rbk-btn" id='tijiao'>确认预约</button>
+		</div>
+	</body>
+</html>

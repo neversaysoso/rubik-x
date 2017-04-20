@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('客户端组件');
+				titleBar.canBack(true,true);
+				titleBar.titleType({
+					"leftType":1
+				});
+				var content = rbk.getCmp('content');
+				var camera = content.down('#camera');
+				camera.bindClick(function(){
+					rbk.platform.QRCodeScanning(function(me){
+						alert(me.code);
+					});
+				});
+				var alertbtn = content.down('#alert');
+				alertbtn.bindClick(function(){
+					titleBar.titleType({
+						"leftType":0
+					});
+					alert('弹框',function(){
+						alert(2)
+					})
+				});
+				var confirmbtn = content.down('#confirm');
+				confirmbtn.bindClick(function(){
+					titleBar.titleType({
+						"leftType":1
+					});
+					confirm('选择弹框',function(){
+						alert('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+					})
+				});
+				var pay = content.down('#pay');
+				pay.bindClick(function(){
+					rbk.platform.WXPay({
+						"prepayid":"12010000001503065b7945c272b0de89",
+						"noncestr":"8963920e8b402154316d8175fa189112",
+						"appid":"wxf15edb524770ea74",
+						"package":"Sign=WXpay",
+						"partnerid":"1223735601",
+						"timestamp":"1425636496",
+						"sign":"2f14eace6897dae4e232d14c5b6cd27ab5624980",
+						"pay_status":"0",
+						callBackSuccess: function() {
+							alert("成功");
+						},
+						callBackFail: function() {
+							alert("失败");
+						},
+						callBackCancel: function() {
+							alert("取消");
+						}
+					});
+				});
+				var loading = content.down('#loading');
+				loading.bindClick(function(){
+					load();
+					setTimeout("loadClose()",3000);
+				});
+				var date = content.down('#date');
+				var d = '';
+				date.bindClick(function(){
+					rbk.platform.dateSelector(function(me){
+						/*alert(me.date);*/
+						d = me.date;
+						rbk.platform.timeSelector(function(me){
+							alert(me.time);
+							t = me.time;
+						},t);
+					},d);
+				});
+				var time = content.down('#time');
+				var t = '';
+				time.bindClick(function(){
+					rbk.platform.timeSelector(function(me){
+						alert(me.time);
+						t = me.time;
+					},t);
+				});
+				var openID = content.down('#openID');
+				
+				openID.bindClick(function(){
+					rbk.platform.getUserOpenID(function(me){
+						alert(me.user_openid)
+					});
+				});
+				var alipay = content.down('#alipay');
+				alipay.bindClick(function(){
+					rbk.platform.aliPay({
+						"sign":"EqiwrQDsAlUh24QrDt5wUV869wjbdGVzdG39BMn3hmRpxPWmPUm8QyWNYx/n4JybBlohDcOK3Zs8dK+WeilLvUYLLJrQnXYEoiNItzpUMJIvhFGNyn85BhZ/I3jLOKqEfOlwxBPyoo13dHVMYZEMEqnZ0uG2rBkJqK46angyk1U=",
+						"sign_type":"RSA",
+						"service":"alipay.wap.create.direct.pay.by.user",
+						"partner":"2088121460372114",
+						"seller_id":"2088121460372114",
+						"charset":"UTF-8",
+						"payment_type":"1",
+						"notify_url":"http://test.czsrmyy.ucmed.cn/pay/aliPayNotify.htm",
+						"return_url":"http://test.czsrmyy.ucmed.cn/getappointlist.htm?action=today&action=gohome",
+						"out_trade_no":"1455781009890",
+						"subject":"池州市人民医院挂号收费",
+						"total_fee":"16.00",
+						"show_url":"http://test.czsrmyy.ucmed.cn/getappointlist.htm?action=today&action=gohome",
+						"body":"池州市人民医院挂号收费",
+						"it_b_pay":"15m"
+					});
+				})
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<button id='' class="rbk-btn" navurl="webview.html">页面操作</button>
+			<button id='camera' class="rbk-btn">二维码</button>
+			<button id='alert' class="rbk-btn">alert</button>
+			<button id='confirm' class="rbk-btn">confirm</button>
+			<button id='pay' class="rbk-btn">微信支付</button>
+			<button id='alipay' class="rbk-btn">支付宝支付</button>
+			<button id='loading' class="rbk-btn">等待框</button>
+			<button id='date' class="rbk-btn">日期选择器</button>
+			<button id='time' class="rbk-btn">时间选择器</button>
+			<button id='openID' class="rbk-btn">获取用户openID</button>
+		</div>
+	</body>
+</html>

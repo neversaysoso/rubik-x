@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('检验单详情');
+				titleBar.canBack(true, true);
+				
+				var content = rbk.getCmp('content');
+				var list = content.down('list');
+				list.doLayout(testData.reportEnd.test2);
+				
+				var reporttable = content.down("#reporttable");
+				reporttable.doLayout(testData.UI2reporttable);
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<p class="rbk-reportbz">注:
+				偏高<span class="rbk-icon icon--01"></span>
+				偏低<span class="rbk-icon icon-uniE907"></span>
+				阳性<span class="rbk-icon icon-uniE909"></span>
+				阴性<span class="rbk-icon icon-uniE90A"></span>
+				无状态为正常
+			</p>
+			<div class="rbk-list rbk-reporthead">
+				<div class="rbk-listitem" tpl="tpl">
+					{name}：<span class="lite">{value}</span>
+				</div>
+			</div>
+			
+			<div id="reporttable" class="rbk-list reporttable">
+				<div class="rbk-subtitle">
+					<span class="report_1">项目名称</span>
+					<span class="report_2">结果</span>
+					<span class="report_3">状态</span>
+				</div>
+				<div class="rbk-listitem" tpl="tpl">
+					<span class="report_1">
+						{name}
+						<br/>
+						<span class="lite">参考范围：{rang}</span>
+					</span>
+					<span class="report_2">
+						{value}<br/>
+						<span class="lite">{unit}</span>
+					</span>
+					<span class="report_3">
+						{state}
+					</span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

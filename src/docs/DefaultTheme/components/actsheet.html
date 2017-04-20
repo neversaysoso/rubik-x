@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<script type="text/javascript">
+			rbk.ready(function(opt) { 
+				//console.log(rbk.collalist);
+				//if(!opt.firstTime) return;
+				
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('弹出功能组件');
+				titleBar.canBack(true,true);
+				
+				var content = rbk.getCmp('content');
+				var actSheet1 = rbk.getCmp('actsheet');
+				actSheet1.selCallback = function(shell){
+					switch(shell.id()){
+						case "camera":rbk.platform.QRCodeScanning(function(me){
+							alert(me.code);
+						});
+							console.log("camera");
+						break;
+						case "alert":alert('成功');
+						break;
+						case "confirm":confirm('确认吗？',function(){
+							alert('好的');
+						})
+						break;
+						case "pay":rbk.platform.WXPay({
+							"prepayid":"12010000001503065b7945c272b0de89",
+							"noncestr":"8963920e8b402154316d8175fa189112",
+							"appid":"wxf15edb524770ea74",
+							"package":"Sign=WXpay",
+							"partnerid":"1223735601",
+							"timestamp":"1425636496",
+							"sign":"2f14eace6897dae4e232d14c5b6cd27ab5624980",
+							"pay_status":"0",
+							callBackSuccess: function() {
+								alert("成功");
+							},
+							callBackFail: function() {
+								alert("失败");
+							},
+							callBackCancel: function() {
+								alert("取消");
+							}
+						});
+					}
+					console.log(shell);
+				};
+				var actSheet2 = actSheet1.next("actsheet");
+				actSheet2.selCallback = function(shell){
+					switch(shell.id()){
+						case "loading":load();setTimeout('loadClose()',2000);
+						break;
+						case "date":rbk.platform.dateSelector(function(me){
+							alert(me.date)
+						});
+						break;
+						case "time":rbk.platform.timeSelector(function(me){
+							alert(me.time)
+						});
+						break;
+						case "openID":rbk.platform.getUserOpenID(function(me){
+							alert(me.user_openid)
+						});
+						break;
+					}
+					console.log(shell);
+				};
+				//actSheet1.switch();
+				var btn = content.down('btn');
+				btn.bindClick(function(){
+					actSheet1.switch();
+				});
+				btn = btn.next("btn");
+				btn.bindClick(function(){
+					actSheet2.switch();
+				});
+				console.log(actSheet1)
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<button class="rbk-btn">功能组1</button>
+			<button class="rbk-btn">功能组2</button>
+		</div>
+		<div class="rbk-actsheet">
+			<ul class="rbk-table-view">
+				<li id="camera" class="rbk-table-view-cell">扫二维码</li>
+				<li id="alert" class="rbk-table-view-cell">弹框alert</li>
+				<li id="confirm" class="rbk-table-view-cell">弹框confirm</li>
+				<li id="pay" class="rbk-table-view-cell">微信支付</li>
+			</ul>
+			<ul class="rbk-table-view">
+				<li class="rbk-table-view-cell">取消</li>
+			</ul>
+		</div>
+		<div class="rbk-actsheet" rbk-role="fromtop">
+			<ul class="rbk-table-view">
+				<li id="loading" class="rbk-table-view-cell">loading</li>
+				<li id="date" class="rbk-table-view-cell">日期控件</li>
+				<li id="time" class="rbk-table-view-cell">时间控件</li>
+				<li id="openID" class="rbk-table-view-cell">获得用户openID</li>
+			</ul>
+			<ul class="rbk-table-view">
+				<li class="rbk-table-view-cell">取消</li>
+			</ul>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('客户端组件');
+				titleBar.canBack(true,true);
+				titleBar.titleType({
+						"leftType":1
+				});
+				var content = rbk.getCmp('content');
+				var alipay = content.down('#alipay');
+				alipay.bindClick(function(){
+					rbk.platform.aliPay({
+						"sign":'{"_input_charset":"UTF-8","body":"支付测试","notify_url":"http%3A%2F%2Ftest.jxh.ucmed.cn%2FaliPayNotify.htm","out_trade_no":"20160708103346998","partner":"2088221951939531","payment_type":"1","seller_id":"btkjzfb@163.com","service":"mobile.securitypay.pay","subject":"支付测试","total_fee":"0.01","sign":"K9YHqMxKwlfMzv0b4dIobZXY0hf2NM6aPP%2BSUzyIB%2Fo4noDMep1HucJHs3p2KmCDQDlvVcUgAcvVSs6zLlU4jL7eqafVdSm4tk1aQhK3F8K0Al9Cnq9HVHkzOhPI61237AZluPSMlyV2H4tjbKSxQelEwTcR6lMg01IWlBw%2BIB8%3D"}',
+						callBackSuccess: function() {
+							alert("成功");
+						},
+						callBackFail: function() {
+							alert("失败");
+						},
+						callDoing: function() {
+							alert("取消");
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<button id='alipay' class="rbk-btn">支付宝支付</button>
+		</div>
+	</body>
+</html>

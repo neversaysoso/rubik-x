@@ -1,0 +1,98 @@
+no-padding {
+  padding: 0;
+}
+/*# sourceMappingURL=global.css.map */
+.rbk-table-view-cell.rbk-listitem{
+    .rbk-checkbox,.rbk-radio{
+        margin: -5px -15px;
+    }
+}
+//信息查询文本内容显示标签
+.rbk-checkbox,.rbk-radio{
+    padding-left: 0px;
+    &.rbk-left{
+        &.rbk-right{
+            label{
+                display: block;
+                width: 100%;
+                padding: 0px;
+                margin: 0px;
+                padding-left: 15px;
+                padding-right: 50px;
+                height: 50px;
+                line-height: 50px;
+                position: relative;
+                input[type=checkbox],input[type=radio]{
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -15px;
+                    right: 7px;
+                    left: auto;
+                }
+            }
+        }
+        label{
+            display: block;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+            padding-left: 50px;
+            height: 50px;
+            line-height: 50px;
+            position: relative;
+            padding-right: 0px;
+            input[type=checkbox],input[type=radio]{
+                position: absolute;
+                top: 50%;
+                margin-top: -15px;
+                left: 15px;
+            }
+        }
+        &.rbk-hasimg{
+            img{
+                height: 50px;
+                width: 50px;
+                position: absolute;
+                left: 50px;
+                display: block;
+                border-radius: 50%;
+            }
+            label{
+                padding-left: 115px;
+            }
+        }
+    }
+    label{
+        display: block;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        padding-left: 15px;
+        height: 50px;
+        line-height: 50px;
+        position: relative;
+        padding-right: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        input[type=checkbox],input[type=radio]{
+            position: absolute;
+            top: 50%;
+            margin-top: -14px;
+            right: 15px;
+        }
+    }
+    &.rbk-hasimg{
+        img{
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            left: 15px;
+            display: block;
+            border-radius: 50%;
+        }
+        label{
+            padding-left: 80px;
+        }
+    }
+}

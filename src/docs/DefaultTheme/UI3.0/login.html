@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+		
+		<script type="text/javascript">
+			var loginForm = [{
+				id: 'username2',
+				labelName: '姓名',
+				ctype: 'frmtxt',
+				defValue: '',
+				options: [],
+				hasImg:"head"
+			},{
+				id: 'userid2',
+				labelName: '条码',
+				ctype: 'frmtxt',
+				defValue: '',
+				options: [],
+				hasImg:"password"
+			}]
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('登录');
+				titleBar.canBack(true, true);
+				
+				var form = rbk.getCmp("form");
+				form.doLayout(loginForm);
+				
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<div class="rbk-tips">
+				就诊人信息就诊人信息就诊人信息就诊人信息就诊人信息就诊人信息就诊人信息就诊人信息
+			</div>
+			<form class="rbk-form"></form>
+			<div class="rbk-tips bottom">
+				就诊人信息就诊人信息就诊人信息就诊人信息就诊人信息就诊人信息就诊人信息就诊人信息
+			</div>
+			<button class='rbk-btn'>登录</button>
+		</div>
+	</body>
+
+</html>

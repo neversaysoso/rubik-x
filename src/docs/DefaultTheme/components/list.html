@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+		
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('文字列表');
+				titleBar.canBack(true, true);
+				
+				var content = rbk.getCmp('content');
+				var list1 = rbk.getCmp('list').next('list');
+				list1.doLayout(testData.list.list1);
+				
+				var a = 0;
+				list1.bindItemClick(function(e){
+					if(a==0){
+						console.log(1);
+					}
+				})
+				$('.xx').on('tap', function(){
+				    a=1;
+				    console.log(2);
+				    setTimeout(function(){
+				    	a=0;
+				    },1000)
+				});
+				
+				var list2 = rbk.getCmp('list').next('list').next('list');
+				list2.doLayout(testData.list.list2);
+					
+				var navlist = rbk.getCmp('navlist').next('navlist');
+				navlist.doLayout(testData.navlist.test1);
+				navlist.bindItemClick(function(i){
+					console.log(i)
+				})
+				colorlist = navlist.next('#colorlist');
+				colorlist.doLayout(testData.navlist.test2);
+				colorlist.bindItemClick(function(i){
+					console.log(i)
+				})
+				var scroll = rbk.getCmp('scroll');
+				scroll.scrollUp(function(){
+					console.log(2)
+					setTimeout(function(){
+						scroll.refresh()
+					},2000)
+				},'上拉加载更多')
+				
+				scroll.scrollDown(function(){
+					console.log(3)
+					setTimeout(function(){
+						scroll.refresh()
+					},2000)
+				},'下拉加载更多')
+			});
+		</script>
+	</head>
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class='rbk-scroll'>
+		<div class="rbk-content">
+			<div class="rbk-list">
+				<div id='iii' class="rbk-listitem">单行列表</div>
+				<div class="rbk-listitem">列表第2项</div>
+				<div class="rbk-listitem">列表第3项</div>
+				<div class="rbk-subtitle">两行列表</div>
+				<div class="rbk-listitem" rbk-role="twoline">列表第3项我的内容比较多，但也不会超过两行，因为加了.rbk-ellipsis-2,mui会自动截断，变成省略号</div>
+			</div>
+			<div class="rbk-list" rbk-role="circle">
+				<div class="rbk-subtitle">动态binding的列表list</div>
+				<div class='rbk-listitem' tpl='tpl'>
+					{text} {data}
+					<div class='rbk-btn xx' rbk-role='mini'>o</div>
+				</div>
+			</div>
+			<div id="list2" class="rbk-list" rbk-role="circle">
+				<div class="rbk-subtitle">动态binding的列表模板list</div>
+				<div class="rbk-listitem" rbk-role="twoline" tpl="tpl">
+					<span class="rbk-morespan">{date}</span>
+					<span class="rbk-morespan"></span>
+					<span class="rbk-morespan">{fee}</span>
+				</div>
+			</div>
+			<div class="rbk-navlist rbk-nocircle">
+				<div class="rbk-navlistitem" navurl="http://www.baidu.com">导航首页1</div>
+				<div class="rbk-navlistitem">
+					<span class="rbk-morespan">2014-5-12</span>
+					<span class="rbk-morespan">周五  （上午）</span>
+				</div>
+				<div class="rbk-navlistitem">
+					<span class="rbk-morespan">2014-5-12</span>
+					<span class="rbk-morespan">周五  （上午）</span>
+				</div>
+			</div>
+			<div class="rbk-navlist rbk-nocircle">
+				<div class="rbk-subtitle">动态binding的navlist</div>
+			</div>
+			<div class="rbk-navlist" id='colorlist'>
+				<div class="rbk-subtitle">动态binding的navlist模板模式</div>
+				<div class="rbk-navlistitem" tpl="tpl">
+					<span style="color:red;">{lastName}</span>
+					{firstName}
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

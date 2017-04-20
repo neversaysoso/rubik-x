@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript">
+			var mlist = [{
+				text: '动态绑定1动态绑定1动态绑定1动态绑定1动态绑定1动态绑定1动态绑定1动态绑定1',
+				title: '标题1'
+			},{
+				text: '动态绑定2',
+				title: '标题2'
+			},{
+				text: '动态绑定3',
+				title: '标题3'
+			},{
+				text: '动态绑定4动态绑定4动态绑定4动态绑定4动态绑定4动态绑定4动态绑定4动态绑定4动态绑定4动态绑定4',
+				title: '标题4'
+			}]
+			rbk.ready(function(opt) {
+				var titlebar = rbk.getCmp('titlebar');
+				titlebar.title('满意度调查');
+				var list = rbk.getCmp('list');
+				list.doLayout(mlist);
+			});
+		</script>
+		
+	</head>
+	<style>
+		.docmsg{
+			width: 100%;
+			position: relative;
+		}
+		.docmsg .backimg{
+			display: block;
+			width: 100%;
+			max-height: 200px;
+		}
+		@media only screen and (max-width: 500px) {
+		    .headdiv{
+				width: 61px;
+				height: 61px;
+				background: #FFF;
+				border: #f0f2f5 solid 1px;
+				border-radius: 5px;
+				position: absolute;
+				left: 15px;
+				top: 50%;
+				transform: translateY(-50%);
+				overflow: hidden;
+			}
+			.docinfo{
+				position: absolute;
+				left: 85px;
+				top: 50%;
+				transform: translateY(-50%);
+				color: #fff;
+				line-height: 25px;
+				
+			}
+			.docinfo>b{
+				font-size: 20px;
+			}
+			.docinfo .docdept{
+				border-left: #fff solid 1px;
+				margin-left: 8px;
+				padding-left: 8px;
+				line-height: 16px;
+				height: 16px;
+				display: inline-block;
+			}
+			.headdiv>img{
+				display: block;
+				width: 100%;
+			}
+		}
+		@media only screen and (min-width: 500px) {
+			.headdiv{
+				width: 61px;
+				height: 61px;
+				background: #FFF;
+				border: #f0f2f5 solid 1px;
+				border-radius: 5px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-65px);
+				overflow: hidden;
+			}
+			.docinfo{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,15px);
+				color: #fff;
+				line-height: 25px;
+				text-align: center;
+			}
+			.docinfo>b{
+				font-size: 20px;
+			}
+			.docinfo .docdept{
+				border-left: #fff solid 1px;
+				margin-left: 8px;
+				padding-left: 8px;
+				line-height: 16px;
+				height: 16px;
+				display: inline-block;
+			}
+			.headdiv>img{
+				display: block;
+				width: 100%;
+			}
+		}
+		.panelnr{
+			padding: 15px;
+			color: #888;
+			line-height: 25px;
+		}
+	</style>
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<div class="docmsg">
+				<img class="backimg" src="../../../images/example/docmsg.jpg">
+				<div class="headdiv">
+					<img src="../../../images/example/docdefult.jpg">
+				</div>
+				<div class="docinfo">
+					<b>黄敏</b><span class="docdept">主任医师</span>
+					<br/>科室: 消化内科
+				</div>
+			</div>
+			<div class="rbk-list rbk-space">
+				<div class="rbk-listitem" tpl='tpl' style="padding: 0px;">
+					<div class="rbk-subtitle" rbk-role="leftcolor">{title}</div>
+					<div class="panelnr">{text}</div>
+				</div>
+			</div>
+			<div class="rbk-fixbtn rbk-nobkcolor">
+				<button class="rbk-btn" rbk-role="">仅预约</button>
+			</div>
+		</div>
+		
+	</body>
+</html>

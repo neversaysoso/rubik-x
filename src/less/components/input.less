@@ -1,0 +1,79 @@
+//输入框的行 带标签的   针对mui原来的输入框做优化处理 
+.rbk-input-row{
+    height:50px;
+    line-height: 50px;
+    label,input{
+    height:50px;
+    line-height: 30px;     
+    }
+    label{
+        width:35%;
+    }
+    label~input{
+      width:62%;
+        padding:10px 10px 10px 0;   
+    }
+    .rbk-cselect{
+        top: 7px;
+    }
+}
+//输入框外部div，带边框
+.input-div01{
+    position: relative;
+    width:100%;
+    margin:15px auto 0 auto;
+    border:1px solid #e6e6e6;
+    background-color:#fff;
+    border-radius:3px;
+    padding-left:120px;
+    label{
+        position:absolute;
+        top:0;
+        left: 0;
+        width:120px;
+        height:40px;
+        text-align: center;
+    }
+    input{
+        width:100%;
+    }
+}
+
+//扫码输入框
+.code-input-div{
+    position: relative;
+//  padding-left:40px;
+    span{
+        position: absolute;
+        top:10px;
+        right:10px;
+        width:30px;
+        height:30px;
+        background: url('@{base-url}/images/basic/code-icon.png') no-repeat;
+        background-size:30px;
+    }
+    input{
+        padding-right:45px;
+    }
+}
+.rbk-checkbox input[type=checkbox],.rbk-radio input[type=radio]{
+    &:before{
+        font-size: 22px;
+        line-height: 26px;
+    }
+    &:checked:before{
+        color: @style-color;
+    }
+}
+.rbk-input-group{
+    .rbk-input-row:last-child:after{
+        height: 0px;
+    }
+    .rbk-input-row{
+        height: auto;
+    }
+}
+
+.rbk-input-row label~input{
+    float: left;
+}

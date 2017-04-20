@@ -1,0 +1,205 @@
+/*主面板 自定义的功能项列表*/
+//第一种样式 功能列表  圆形图标 湘雅风格
+.rui-tabel-ul01{
+	background:transparent;
+	padding:10px 2em;
+	border:none;
+   //每个小项 每行三个图标
+   .rui-table-view-cell{
+	list-style: none;
+	float: left;
+	width: 25%;
+	margin-left:12.5%;
+	margin-top:1em;
+	border:none;
+	//内部元素的布局
+	.rui-navigate-middle{
+ color:#000;
+ text-decoration: none;
+ text-align: center;
+ display: block;
+ border:none;
+ //标题以及图片的div
+   .imgdiv,.tidiv{
+    width:100%;}
+    .tidiv{
+    margin-top: 0.5em;}
+}
+	 //针对图片做特殊处理
+	.fun-img {
+	width:100%;
+}	
+} 
+   //每个小项  第一个特别处理  也可以根据函数 3n+1 做样式处理 简化代码量
+  .rui-table-view-cell:nth-child(3n+1){
+	margin-left:0;
+}
+
+
+
+}
+
+
+
+//第一种样式 卡片风格1 
+.rui-tabel-ul02{
+    background:transparent;
+    padding:0px 10px 15px;
+    border:none;
+    margin-bottom:20px;
+   //每行两个图标
+//  .rui-table-view-cell:hover{
+//      background: #ACACB4;
+//      color:#000;
+//  }
+   .rui-table-view-cell{
+    list-style: none;
+    width: 50%;
+    margin-top:10px;
+    border:none;
+    height:auto;
+    float: left;
+    .cell-div{
+    background: #F8F7F7;   
+    padding:10px 8px 10px 8px; 
+     overflow: hidden;
+    }
+    .imgdiv{
+        img{
+        width:100%;
+        border:none;}
+        float:left;
+        width:30%;
+        padding-right:5px;
+    }
+    .titlediv{
+        float:left;
+        width:70%;
+        height:65px;
+        .funname{
+          font-family: '黑体';
+          line-height: 25px;
+          font-size:20px;  
+        }
+        .fundesc{
+           line-height: 20px;
+          font-size:14px;  
+          color:#BFBEBE;
+          height:40px;
+          overflow: hidden;
+          white-space:normal;
+        text-overflow: ellipsis; 
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+
+        }
+    } 
+   } 
+// 针对奇数偶数辨别样式
+    .rui-table-view-cell:nth-child(2n+1){
+      padding-right:5px;  
+    }
+     .rui-table-view-cell:nth-child(2n){
+       padding-left:5px;   
+    }
+}
+
+
+//第2种样式 卡片风格2   上面两个特殊样式的div
+.rui-tabel-uldiv03{
+    width: 100%;
+    padding:11px 15px 11px 15px;
+    overflow: hidden;
+    background: #fff;
+    margin-top:-5px;
+    .uldiv03left{
+      padding-right:15px; 
+      float: left;
+      
+    }
+    .uldiv03right{
+      padding-left:15px; 
+        float: right;   
+    }
+   .uldiv03right,.uldiv03left{
+      width:48.5%; 
+      height:65px;
+      padding:8px 5px 12px 5px;
+      background:#8BCE5D ;
+       .imgdiv{
+           float: left;  
+          width:30%;
+          padding: 2px 5px 2px 10px;
+          img{
+              width: 100%;
+              margin-top:4px ;
+          }
+      } 
+       .tidiv{
+          float: left;
+          width:70%;
+          text-align: left;
+          font-size: 20px;
+          line-height: 45px;
+          height:45px;
+          color:#fff;
+      }
+   }
+    
+    
+}
+//下面普通样式功能列表
+.rui-tabel-ul03{
+    background:transparent;
+    padding:0px 15px 48px;
+    border:none;
+    overflow: hidden;
+    margin-bottom:20px;
+   //每行两个图标
+//  .rui-table-view-cell:hover{
+//      background: #ACACB4;
+//      color:#000;
+//  }
+   .rui-table-view-cell{
+    list-style: none;
+    width: 50%;
+    background: #F8F7F7;
+    margin-top:10px;
+    border:#E2E2E2 1px solid;
+    height:auto;
+    float: left;
+    padding:10px 5px 10px 10px;
+    border-radius: 12px;
+    .imgdiv{
+        img{
+        width:95%;
+        margin-top:5px;
+        }
+        float:left;
+        width:35%;
+        padding-right:5px;
+    }
+    .titlediv{
+        float:left;
+        width:65%;
+        height:54px;
+        .funname{
+          font-family: '黑体';
+          line-height: 54px;
+          font-size:20px;  
+        }
+        
+    } 
+   } 
+// 针对奇数偶数辨别样式
+    .rui-table-view-cell:nth-child(2n+1){
+      border-right:1px solid #E2E2E2;  
+    }
+     .rui-table-view-cell:nth-child(2n){
+      border-left:none;     
+    }
+    
+    
+}
+ 

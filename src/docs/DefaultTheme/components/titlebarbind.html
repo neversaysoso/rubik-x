@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var content = rbk.getCmp('content');
+				content.changeBk("#fff")
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.titleType({
+					"leftType":1
+				});
+				titleBar.title('基本标题组件');
+				var btn1 = content.down('btn');
+				btn1.bindClick(function() {
+					titleBar.titleType({
+						"leftType":0
+					});
+				});
+				var btn2 = content.down('btn').next('btn');
+				btn2.bindClick(function() {
+					titleBar.titleType({
+						"leftType":1
+					});
+				});
+				var btn3 = content.down('btn').next('btn').next('btn');
+				btn3.bindClick(function() {
+					titleBar.titleType({
+						"leftType":2,
+						"text":"首页",
+						"url":"http://www.baidu.com"
+					});
+				});
+				var btn4 = content.down('#btn4');
+				btn4.bindClick(function() {
+					titleBar.titleType({
+						"rightType":'2',
+						"content":"http://resources.rubik-x.ucmed.cn/v1.3.0/images/basic/head-default.png",
+						"rightList":[{
+							"title": '功能1',
+							"callback": function() {
+								alert(1);
+							}
+						}]
+					});
+				});
+				var btn5 = content.down('#btn5');
+				btn5.bindClick(function() {
+					titleBar.titleType({
+						"leftType":'2',
+						"rightType":'1',
+						"content":"帮助2",
+						"rightList":[{
+							"title": '功能1',
+							"callback": function() {
+								alert(1);
+							}
+						}, {
+							"title": '功能2',
+							"callback": function() {
+								alert(2);
+							}
+						}]
+					});
+				});
+				var btn6 = content.down('#btn6');
+				btn6.bindClick(function() {
+					titleBar.titleType({
+						"rightType":'2',
+						"content":"http://resources.rubik-x.ucmed.cn/v1.3.0/images/basic/head-default.png",
+						"rightList":[{
+							"title": '功能1',
+							"callback": function() {
+								alert(1);
+							},
+							"imgUrl": 'http://resources.rubik-x.ucmed.cn/v1.3.0/images/basic/head-default.png'
+						}, {
+							"title": '功能2',
+							"callback": function() {
+								alert(2);
+							},
+							"imgUrl": 'http://resources.rubik-x.ucmed.cn/v1.3.0/images/basic/head-default.png'
+						}]
+					});
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<button class="rbk-btn">无按钮</button>
+			<button class="rbk-btn">后退</button>
+			<button class="rbk-btn">主页</button>
+			<button id='btn4' class="rbk-btn">右侧1项</button>
+			<button id='btn5' class="rbk-btn">右侧多项文字</button>
+			<button id='btn6' class="rbk-btn">右侧多项图片</button>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<style>
+			.rbk-input-row.rbk-checkbox.rbk-left label>span{
+				width: 50%;
+				display: inline-block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				float: left;
+			}
+			.rbk-input-row.rbk-checkbox.rbk-left label>span:nth-child(2){
+			    font-size: 14px;
+			    color: #8a8a8a;
+			    padding-left: 20px;
+			    overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				position: relative;
+			}
+			.rbk-input-row.rbk-checkbox.rbk-left label>span:nth-child(2):before{
+				font-family: 'rbkmark';
+			    content: '\e91d';
+			    position: absolute;
+			    left: 0;
+			    color: #ccc;
+			    font-size: 16px;
+			}
+		</style>
+		<script type="text/javascript">
+			var g = [{
+				text:'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+				img:'http://resources.rubik-x.ucmed.cn/v1.3.0/images/example/head01.png',
+				id:'d1',
+				de:'主任医师'
+			},{
+				text:'zzzzz',
+				img:'http://resources.rubik-x.ucmed.cn/v1.3.0/images/example/head01.png',
+				id:'d2',
+				de:'主任医师'
+			},{
+				text:'xxxxx',
+				img:'http://resources.rubik-x.ucmed.cn/v1.3.0/images/example/head01.png',
+				id:'d3',
+				de:'主任医师'
+			},{
+				text:'zzzzz',
+				img:'http://resources.rubik-x.ucmed.cn/v1.3.0/images/example/head01.png',
+				id:'d4',
+				de:'主任医师'
+			},{
+				text:'xxxxx',
+				img:'http://resources.rubik-x.ucmed.cn/v1.3.0/images/example/head01.png',
+				id:'d5',
+				de:'主任医师'
+			},{
+				text:'zzzzz',
+				img:'http://resources.rubik-x.ucmed.cn/v1.3.0/images/example/head01.png',
+				id:'d6',
+				de:'主任医师'
+			},{
+				text:'xxxxx',
+				img:'http://resources.rubik-x.ucmed.cn/v1.3.0/images/example/head01.png',
+				id:'d7',
+				de:'主任医师'
+			},{
+				text:'zzzzz',
+				img:'http://resources.rubik-x.ucmed.cn/v1.3.0/images/example/head01.png',
+				id:'d8',
+				de:'主任医师'
+			}]
+			rbk.ready(function(opt) {
+				var titlebar = rbk.getCmp('titlebar');
+				titlebar.title('邀请医生');
+				
+				var list = rbk.getCmp('list');
+				list.doLayout(g);
+				
+				var qx = rbk.getCmp('#qx');
+				
+				qx.bindChange(function(me){
+					if($(me.dom).attr('v')==0){
+						$('.rbk-list .rbk-checkbox').each(function(i,e){
+							$(e).find('input[type=checkbox]').prop('checked','true')
+						})
+						$(me.dom).attr('v','1');
+					}else{
+						$('.rbk-list .rbk-checkbox').each(function(i,e){
+							$(e).find('input[type=checkbox]').prop("checked", function(index, attr){
+					            return !attr;
+					        });
+						})
+						$(me.dom).attr('v','0');
+					}
+				})
+				$('.rbk-list .rbk-checkbox input[type=checkbox]').on('click',function(){
+					if($(qx.dom).attr('v')==1){
+						$(qx.dom).attr('v','0');
+						qx.checked(false);
+					}
+					var checkall = 0;
+					$('.rbk-list .rbk-checkbox input[type=checkbox]').each(function(i,e){
+						if(!e.checked&&i!=0){
+							checkall = 1;
+						}
+					})
+					if(checkall == 0){
+						qx.checked(true);
+						$(qx.dom).attr('v','1');
+					}
+				})
+				var btn = rbk.getCmp('#yqbtn');
+				btn.bindClick(function(){
+					var objArray = new Array;
+					$('.rbk-list input[type=checkbox]').each(function(i,e){
+						if(e.checked&&i!=0){
+							objArray.push(g[i-1].id)
+						}
+					})
+					alert(objArray)
+				})
+				
+			});
+		</script>
+		
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<div class='rbk-checkbox' id='qx' v='0'><label>选中全部</label></div>
+			<div class="rbk-list rbk-removecolor">
+				<div class='rbk-listitem' tpl='tpl'>
+					<div class='rbk-checkbox rbk-hasimg'>
+						<img src="{img}"/>
+						<label>
+							<span>{text}</span>
+							<span class="docdep-icon">{de}</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="rbk-list rbk-removecolor">
+				<div class='rbk-checkbox rbk-right'>
+					<label>
+						<span>111</span>
+					</label>
+				</div>
+			</div>
+			<button id='yqbtn' class='rbk-btn'>邀请</button>
+		</div>
+	</body>
+</html>

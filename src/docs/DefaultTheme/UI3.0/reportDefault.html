@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+		
+		<script type="text/javascript">
+			var reportForm = {
+				jydDemo:[{
+					id: 'username',
+					labelName: '姓名',
+					ctype: 'frmtxt',
+					defValue: '',
+					options: [],
+					hasImg:"head"
+				},{
+					id: 'userid',
+					labelName: '条码',
+					ctype: 'frmtxt',
+					defValue: '',
+					options: [],
+					hasCode: true,
+					hasImg:"code"
+				},{
+					id: 'phone',
+					labelName: '手机',
+					ctype: 'frmtxt',
+					defValue: '',
+					options: [],
+					hasImg:"phone"
+				},{
+					id: 'yzm',
+					labelName: '验证码',
+					ctype: 'frmtxt',
+					defValue: '',
+					options: [],
+					hasBtn: '发送验证码',
+					hasImg:"password"
+				}],
+				jcdDemo:[{
+					id: 'username2',
+					labelName: '姓名',
+					ctype: 'frmtxt',
+					defValue: '',
+					options: [],
+					hasImg:"head"
+				},{
+					id: 'userid2',
+					labelName: '条码',
+					ctype: 'frmtxt',
+					defValue: '',
+					options: [],
+					hasCode: true,
+					hasImg:"code"
+				}]
+			}
+			rbk.ready(function(opt) {
+				//if(!opt.firstTime) return;
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('取报告单');
+				titleBar.canBack(true, true);
+				
+				var content = rbk.getCmp('content');
+				var tab = content.down("tab");
+				var jydform = content.down("form");
+				jydform.doLayout(reportForm.jydDemo);
+				
+				var jcdform = content.down("#jcddemo");
+				jcdform.doLayout(reportForm.jcdDemo);
+				
+				var codeBtn = content.down("#userid").down("btn");
+				codeBtn.bindClick(function(){
+					rbk.platform.QRCodeScanning(function(m){
+						var form = codeBtn.up("frmtxt");
+						var t = m.code;
+						form.setVal(t);
+					});
+				});
+				var code1 = content.down("#userid2").down("btn");
+				code1.bindClick(function(){
+					rbk.platform.QRCodeScanning(function(m){
+						var form = code1.up("frmtxt");
+						var t = m.code;
+						form.setVal(t);
+					});
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<div class="rbk-tab">
+				<div class="rbk-tabitem" text="检验单">
+					<form id="jyddemo" class="rbk-form"></form>
+					<button class="rbk-btn" navurl='checkList.html'>查询</button>
+				</div>
+				<div class="rbk-tabitem" text="检查单">
+					<form id="jcddemo" class="rbk-form"></form>
+					<button class="rbk-btn" navurl='checkList.html'>查询</button>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+
+</html>

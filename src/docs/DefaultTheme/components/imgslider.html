@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				//console.log(rbk.collalist);
+				//if(!opt.firstTime) return;
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('图片轮播框');
+				titleBar.canBack(true, true);
+				var content = rbk.getCmp('content');
+				var imgslider = content.down('imgslider');
+				imgslider.doLayout(testData.imgsliderDatas);
+				/*是否可以循环*/
+				imgslider.canLoop(true);
+				/*是否自动播放*/
+				imgslider.auto();
+				
+				var imgslider2 = content.down('imgslider').next('imgslider');
+				imgslider2.doLayout(testData.imgsliderDatas);
+				/*是否可以循环*/
+				imgslider2.canLoop(true);
+				/*是否自动播放*/
+				imgslider2.auto();
+				
+				var imgslider3 = content.down('imgslider').next('imgslider').next('imgslider');
+				imgslider3.doLayout(testData.imgsliderDatas);
+				/*是否可以循环*/
+				imgslider3.canLoop(true);
+				/*是否自动播放*/
+				imgslider3.auto(false);
+				
+				/*var imgslider4 = content.down('imgslider').next('imgslider').next('imgslider').next('imgslider');
+				imgslider4.doLayout(testData.imgsliderDatas);*/
+				/*是否可以循环*/
+				/*imgslider4.canLoop(true);*/
+				/*是否自动播放*/
+				/*imgslider4.auto(false);*/
+			});
+		</script>
+	</head>
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<p>循环自动播放带标题轮播</p>
+			<div class="rbk-imgslider"></div>
+			<p>循环自动播放无标题轮播</p>
+			<div class="rbk-imgslider" rbk-role="notext"></div>
+			<p>循环手动播放带标题轮播</p>
+			<div class="rbk-imgslider"></div>
+			<!--<p>自定义模板轮播</p>
+			<div class="rbk-imgslider" rbk-role="notext">
+				<div class="rbk-imgslditem" tpl="tpl">
+					<a href="{url}"><img src="{img}"></a>
+				</div>
+			</div>-->
+		</div>
+	</body>
+
+</html>

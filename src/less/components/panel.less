@@ -1,0 +1,209 @@
+/*自定义面板布局01 包括纯内容区域*/
+.self-panel-01{
+-moz-border-radius:4px ;
+-webkit-border-radius:4px ;
+background-color: #fff;
+border: 1px solid transparent;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+padding:10px;
+line-height:20px;   
+}
+/*自定义面板布局02  包括顶部 以及内容区*/
+.self-panel-02{ 
+
+background-color: #fff;
+border-radius: 10px;
+line-height:20px;   
+
+}
+.self-panel-02 .panel-header{
+padding:10px 15px;
+border-bottom: 1px solid #CACACD;
+font-weight: 700;
+    
+}
+.self-panel-02 .panel-body{
+background-color: #fff;
+padding:10px 15px;
+font-size:16px;
+color:gray;
+    
+}
+.self-panel-02 .panel-body p{
+font-size:16px;
+color:gray;
+    
+}
+
+.rbk-imgfile{
+    border: @outline-color solid 1px;
+    margin: 15px 0px;
+    .rbk-filepanel{
+        padding: 10px 4% 0px;
+        background: #FFFFFF;
+        overflow: hidden;
+        .rbk-uploadbtn{
+            width: 22%;
+            height: 20.125vw;
+            background: url('@{base-url}/images/basic/upload.png') left top no-repeat;
+            background-size: 100%;
+            float: left;
+            margin-bottom: 10px;
+        }
+        img{
+            width: 22%;
+            height: 20.125vw;
+            float: left;
+            margin-bottom: 10px;
+            margin-left: 4%;
+        }
+        img:nth-child(4n+1){
+            margin-left: 0px;
+        }
+    }
+}
+.rbk-actsheet{
+    display: none;
+}
+.rbk-panel{
+    padding: 0px 15px;
+    margin-bottom: 15px;
+    &:first-child{
+        margin-top: 15px;
+    }
+    .rbk-ptitle{
+        border-bottom: @outline-color solid 1px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        color: @font-color-1;
+        font-size: @fontsize-big;
+        line-height: 16px;
+        [class^="icon-"], [class*=" icon-"]{
+            color: @style-color;
+            margin-right: 6px;
+            font-size: 22px;
+            position: relative;
+            top: 3px;
+        }
+    }
+    .rbk-pitem{
+        color: @font-color-2;
+        font-size: @fontsize-normal;
+    }
+}
+.rbk-fixbtn{
+    position: fixed;
+    width: 100%;
+    background: #FFFFFF;
+    bottom: 0px;
+    left: 0px;
+    border-top: @outline-color solid 1px;
+    z-index: 10;
+    .rbk-btn-block{
+        margin: 15px 3%;
+    }
+    &.rbk-nobkcolor{
+        background: @body-back;
+        border: none;
+    }
+}
+.r-fixafter{
+    display: block;
+    width: 100%;
+}
+.paydiv{
+    height: 48px;
+    line-height: 49px;
+    padding: 0px 192px 0px 15px;
+    white-space: nowrap;
+    .rbk-btn{
+        margin: 0px;
+        border-radius: 0px;
+        border: none;
+        line-height: 49px;
+        height: 48px;
+        display: inline-block;
+        width: 116px;
+        padding: 0px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        &:active{
+            border: none;
+        }
+        &.rbk-gray{
+            border-left: @outline-color solid 1px;
+            width: 76px;
+            right: 116px;
+        }
+    }
+}
+.rbk-resultinfo{
+    .infotext{
+        font-size: @fontsize-btn;
+        margin-bottom: 6px;
+    }
+    font-size: @fontsize-small;
+    min-height: 100px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0px 4% 15px;
+    &:before{
+        font-family: 'rbkmark';
+        content: '\e901';
+        font-size: 50px;
+        color: @style-color;
+        margin-bottom: 10px;
+        display: block;
+        height: 50px;
+        line-height: 50px;
+    }
+}
+.rbk-openbox{
+    word-break: break-all;
+    white-space: normal;
+    
+    .showbox{
+        display: block;
+        position: relative;
+        .openboxbtn{
+            display: inline-block;
+            position: absolute;
+            right: 0px;
+            color: @style-color;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            font-size: @fontsize-normal;
+            &:after{
+                font-family: 'rbkmark';
+                content: '\e905';
+                margin-left: 3px;
+                font-size: @fontsize-small;
+            }
+        }
+    }
+    .hidebox{
+        padding-top: 15px;
+        position: relative;
+        display: none;
+        color: @font-color-2;
+    }
+    &.active{
+        .hidebox{
+            display: block;
+        }
+        .openboxbtn{
+            &:after{
+                content: '\e904';
+            }
+        }
+    }
+}
+.rbk-popover{
+    position: fixed;
+}
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title></title>
+	<meta name="screen-orientation" content="portrait" />
+	<meta name="x5-orientation" content="portrait" />
+	<!-- build:css -->
+	<link rel="stylesheet/less" href="../../less/appstyle.less"></link>
+	<script type="text/javascript" src="../../js/libs/libignore/less.min.js"></script>
+	<!-- endbuild -->
+	<!-- build:js -->
+	<script type="text/javascript" src="../../js/libs/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/rbk-v1.3.0.min.js"></script>
+	<!-- endbuild -->
+	<!--<script type="text/javascript" src="../../js/components/rbk-base.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-platform.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-request.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-form.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-content.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-view.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-titlebar.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-list.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-listitem.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-navlist.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-navlistitem.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-collalist.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-collalistitem.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-actsheet.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-btn.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-checkbox.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-radio.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-switcher.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-tab.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-tabitem.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-select.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-subtitle.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-dialog.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-frmlbl.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-frmrdgrp.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-frmsel.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-frmswitcher.js"></script>
+		<script type="text/javascript" src="../../js/components/rbk-frmtxt.js"></script>-->
+	<!--<link rel="stylesheet/less" href="../../less/appstyle.less"></link>
+	<script type="text/javascript" src="../../js/libs/libignore/less.min.js"></script>-->
+	<script type="text/javascript" src="../testdata.js"></script>
+
+	<script type="text/javascript">
+			rbk.ready(function(opt) {
+				//return;
+				var titleBar = rbk.getCmp('titlebar');
+			
+				titleBar.title('Rubik-X-UI');
+				titleBar.canBack(true, true);
+
+				var content = rbk.getCmp('content');
+				
+				var collalist = content.down('collalist');
+				collalist.doLayout(testData.collalistTestData);
+				/*confirm("waimian",function(){
+					alert("limian")
+				})*/
+			});
+		</script>
+</head>
+
+<body>
+	<header class="rbk-titlebar"></header>
+	<div class="rbk-content">
+		<ul class="rbk-collalist"></ul>
+	</div>
+</body>
+
+</html>

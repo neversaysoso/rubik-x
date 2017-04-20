@@ -1,0 +1,223 @@
+.rbk-chat{
+    //padding-bottom: 68px;
+    background: #fff;
+    position: relative;
+    .rbk-chatitem{
+        width: 100%;
+        overflow: hidden;
+        padding: 10px 15px;
+        position: relative;
+        .rbk-chattime{
+            text-align: center;
+            font-size: 13px;
+            color: #bdbdbd;
+            &>div{
+                display: inline-block;
+                padding: 0px 8px;
+                border-bottom: #d0d0d0 solid 1px;
+                line-height: 14px;
+                margin: 0px auto 15px;
+                
+                span{
+                    background: #FFFFFF;
+                    position: relative;
+                    top: 8px;
+                    padding: 0px 6px;
+                }
+            }
+        }
+        .rbk-chathead{
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            float: left;
+            margin-right: 10px;
+            display: block;
+        }
+        .rbk-chatname{
+            color: #8a8a8a;
+            line-height: 16px;
+            font-size: 16px;
+            &:after{
+                content: "";
+                clear: both;
+            }
+            display: none;
+        }
+        .rbk-chattext{
+            float: left;
+            display: inline-block;
+            background: #FFFFFF;
+            border: #e0e0e0 solid 1px;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 5px;
+            max-width: 61%;
+            word-break: break-all;
+            color: #333333;
+            position: relative;
+            margin-left: 5px;
+            img{
+                max-width: 100%;
+            }
+            &:before{
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 8px;
+                z-index: 1;
+                background: url('@{base-url}/images/basic/chatlist-left.png') top left no-repeat;
+                background-size: 100% 100%;
+                left: -10px;
+                top: 10px;
+            }
+        }
+        &.rbk-chatself{
+            .rbk-chathead{
+                float: right;
+                margin-left: 10px;
+            }
+            .rbk-chatname{
+                display:none;
+            }
+            .rbk-chattext{
+                float: right;
+                background: #fef5bb;
+                border: #f0d93d solid 1px;
+                color: #333333;
+                margin-right: 5px;
+                &:before{
+                    content: "";
+                    display: none;
+                }
+                &:after{
+                    content: "";
+                    position: absolute;
+                    width: 10px;
+                    height: 8px;
+                    z-index: 1;
+                    background: url('@{base-url}/images/basic/chatlist-right.png') top left no-repeat;
+                    background-size: 100% 100%;
+                    right: -10px;
+                    top: 10px;
+                }
+            }
+        }
+        &.rbk-chatsystem{
+            text-align: center;
+            .rbk-chattext{
+                float: none;
+                border: none;
+                color: #FFFFFF;
+                background: #CACACA;
+                font-size: 13px;
+                padding: 8px 12px;
+                line-height: 13px;
+                text-align: left;
+                margin-left: 0px;
+                &:before{
+                    content: "";
+                    display: none;
+                }
+            }
+            .rbk-chathead{
+                display: none;
+            }
+            .rbk-chatname{
+                display: none;
+            }
+        }
+    }
+    .rbk-chatform{
+        padding: 0px;
+        background: #f5f5f5;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        border-top: #c7c7c7 solid 1px;
+        width: 100%;
+        z-index: 100;
+        .rbk-chatformtext{
+            position: relative;
+            padding: 10px;
+            padding-right: 82px;
+            padding-left: 52px;
+            //height: 38px;
+            
+            input[type=text]{
+                height: 38px;
+                width: 100%;
+                padding: 5px 10px;
+                line-height: 20px;
+                box-shadow: none;
+                background: #fafafa;
+                border: #e0e0e0 solid 1px;
+                border-radius: 8px;
+                margin: 0px;
+            }
+            .rbk-pass{
+                position: absolute;
+                height: 38px;
+                width: 60px;
+                top: 10px;
+                right: 10px;
+                background: @style-color;
+                color: #FFFFFF;
+                padding: 0px;
+                margin: 0px;
+                line-height: 36px;
+                border: @style-color solid 1px;
+                border-radius: 8px;
+                font-size: @fontsize-normal;
+            }
+            .rbk-bsk{
+                position: absolute;
+                height: 32px;
+                width: 32px;
+                top: 13px;
+                left: 10px;
+                padding: 0px;
+                margin: 0px;
+                border: #27a9f0 solid 1px;
+                border-radius: 50%;
+                &:after{
+                    content: "\e91c";
+                    font-family: 'rbkmark';
+                    line-height: 31px;
+                    color: #27a9f0;
+                    font-size: 20px;
+                    font-weight: normal;
+                }
+            }
+        }
+        
+        .rbk-chatformbottom{
+            width: 100%;
+            display: none;
+            background: #fff;
+            overflow: hidden;
+            padding: 10px 0px;
+            border-top: #c7c7c7 solid 1px;
+            .rbk-chatoffer{
+                width: 25%;
+                float: left;
+                display: table;
+                vertical-align: middle;
+                text-align: center;
+                margin: 5px 0px;
+                img{
+                    width: 50px;
+                }
+                &>div{
+                    font-size: 13px;
+                    color: #333;
+                    width: 100%;
+                    text-align: center;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}

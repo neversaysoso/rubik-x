@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('tab');
+				titleBar.canBack(true, true);
+				var content = rbk.getCmp('content');
+				var tab = content.down('tab');
+				tab.bindItemClick(function(i){
+			    	console.log(i)
+			    })
+				var list2 = rbk.getCmp('#zdy');
+				list2.doLayout(testData.list.list2);
+				
+				var tab = content.down('tab').next('tab');
+			    tab.doLayout(testData.tab.test1);
+			    tab.bindItemClick(function(i){
+			    	console.log(i)
+			    })
+			    tab = tab.next('tab');
+			    tab.doLayout(testData.tab.test2);
+			    
+			    tab.onChange(function(i,e){
+					console.log(e);
+					e.doLayout([{
+						text1:"jjj"
+					}])
+				})
+			    tab.bindItemClick(function(i){
+			    	console.log(i)
+			    })
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<!--<p>自定义静态tab框（下框下的自容器最好是类标记为 rbk-table-view的div标签）</p>-->
+			<div class="rbk-tab">
+				<div class="rbk-tabitem" text="标签">
+					<div class="rbk-navlist">
+						<div class="rbk-navlistitem" navurl="">PC方案</a>
+						</div>
+						<div class="rbk-navlistitem" navurl="">手机方案</a>
+						</div>
+						<div class="rbk-navlistitem" navurl="">TV方案</a>
+						</div>
+					</div>
+				</div>
+				<div class="rbk-tabitem" text="列表标签">
+					<div class="rbk-list" rbk-role='circle'>
+						<div class="rbk-listitem">PC方案1</a>
+						</div>
+						<div class="rbk-listitem">手机方案1</a>
+						</div>
+						<div class="rbk-listitem">TV方案</a>
+						</div>
+					</div>
+				</div>
+				<div class="rbk-tabitem" text="自定义标签">
+					<div class="rbk-navlist" id="zdy">
+						<div class="rbk-navlistitem" rbk-role="twoline" tpl="tpl">
+							<span class="rbk-morespan">{date}</span>
+							<span class="rbk-morespan"></span>
+							<span class="rbk-morespan">{fee}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--<p>默认动态绑定(collalistitem的自容器必须实现iBindLayoutCmp接口的控件)</p>-->
+			<div class="rbk-tab"></div>
+            <!--<p>模板动态绑定(collalistitem的自容器必须实现iBindLayoutCmp接口的控件)模板下的所有控件都要标记为模板</p>-->
+            <div class="rbk-tab" id="ttab">
+            	<div class="rbk-tabitem" tpl="tpl" text="{text}">
+            		<div class="rbk-navlist rbk-black" tpl="tpl">
+            			<div class="rbk-navlistitem" tpl="tpl" navurl="{url}">
+            				{text1}<br/>
+            				{text1}<br/>
+            				{text1}
+            			</div>
+            		</div>
+            	</div>
+            </div>
+		</div>
+	</body>
+</html>

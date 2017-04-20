@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<script type="text/javascript">
+			rbk.ready(function(opt) { 
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('collalist');
+				titleBar.canBack(true,true);
+				
+				var content = rbk.getCmp('content');
+				
+				var collalist = content.down('collalist').next('collalist');
+				collalist.doLayout(testData.collalist.test1);
+				
+				collalist = collalist.next('collalist');
+				collalist.doLayout(testData.collalist.test2);
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<!--<p>自定义静态折叠框（下框下的自容器最好是类标记为 rbk-table-view的div标签）</p>-->
+			<div class="rbk-collalist">
+				<div class="rbk-collalistitem" text="导航标签">
+					<div class="rbk-navlist">
+						<div class="rbk-navlistitem" navurl="/index.html">PC方案</a>
+						</div>
+						<div class="rbk-navlistitem" navurl="/index.html">手机方案</a>
+						</div>
+						<div class="rbk-navlistitem" navurl="/index.html">TV方案</a>
+						</div>
+					</div>
+				</div>
+				<div class="rbk-collalistitem" text="列表标签">
+					<div class="rbk-list">
+						<div class="rbk-listitem">PC方案</a>
+						</div>
+						<div class="rbk-listitem">手机方案</a>
+						</div>
+						<div class="rbk-listitem">TV方案</a>
+						</div>
+					</div>
+				</div>
+				<div class="rbk-collalistitem" text="自定义标签">
+					<div class="rbk-table-view" style="padding: 20px;">自定义</div>
+				</div>
+			</div>
+			<!--<p>默认动态绑定(collalistitem的自容器必须实现iBindLayoutCmp接口的控件)</p>-->
+			<div class="rbk-collalist"></div>
+            <!--<p>模板动态绑定(collalistitem的自容器必须实现iBindLayoutCmp接口的控件)模板下的所有控件都要标记为模板</p>-->
+            <div class="rbk-collalist">
+            	<div class="rbk-collalistitem" tpl="tpl" text="{name}">
+            		<div class="rbk-navlist"  tpl="tpl">
+            			<div class="rbk-navlistitem" tpl="tpl" navurl="{src}">{name1} {name1}</div>
+            		</div>
+            	</div>
+            </div>
+		</div>
+	</body>
+
+</html>

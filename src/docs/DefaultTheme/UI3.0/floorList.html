@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="format-detection" content="telephone=no,email=no,adress=no">
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+		
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('楼层导航');
+				titleBar.canBack(true, true);			
+				var content = rbk.getCmp('content');
+
+				var tab = content.down('tab');
+				tab.doLayout(UI2floorList2);
+				tab.onChange(function(i,e){
+					//$(e.dom).children().not('[tpl=tpl]').remove()
+					e.doLayout([{
+						faculty_name:"d",
+						type:"专家"
+					}])
+				})
+				/*tab.bindItemClick(function(itCmp){
+					
+				});*/
+				$('.sigletips').each(function(){
+					if($(this).html()==''){
+						$(this).hide()
+					}
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<div class="rbk-tab" rbk-role="floortab" logwidth="30">
+				<div class="rbk-tabitem" tpl="tpl" text="{text}">
+            		<div class="rbk-navlist rbk-black" tpl="tpl">
+            			<div class="rbk-navlistitem" tpl="tpl">
+            				{faculty_name} <span class="sigletips">{type}</span>
+            			</div>
+            		</div>
+            	</div>
+			</div>
+		</div>
+	</body>
+</html>

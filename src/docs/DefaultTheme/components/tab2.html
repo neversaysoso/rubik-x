@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('tab');
+				titleBar.canBack(true, true);
+				var content = rbk.getCmp('content');
+				content.changeBk('#fff');
+				//iframe适配屏幕
+				$('.myiframe').height($(window).height()-110);
+				var iframe = document.getElementById('myframe1');
+				var win = iframe.contentWindow;
+				console.log(win)
+				
+			});
+		</script>
+	</head>
+	<style>
+		.myiframe{
+			width: 100%;
+			border: none;
+		    margin: 0px;
+		    padding: 0px;
+		}
+	</style>
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<div class="rbk-tab" id="ttab" rbk-role="dragtab">
+            	<div class="rbk-tabitem" text="标签1">
+					<iframe id="myframe1" name="myframe1" class="myiframe" src="http://mp.weixin.qq.com/mp/homepage?__biz=MzA4NzQ2OTMxOQ==&hid=1"></iframe>
+				</div>
+				<div class="rbk-tabitem" text="标签2">
+					<iframe class="myiframe" src="http://mp.weixin.qq.com/mp/homepage?__biz=MzAxMTI1MTI3Nw==&hid=1"></iframe>
+				</div>
+				<div class="rbk-tabitem" text="标签3">
+					<iframe class="myiframe" src="http://mp.weixin.qq.com/mp/homepage?__biz=MjM5NTU0OTU4Mw==&hid=4"></iframe>
+				</div>
+            </div>
+		</div>
+	</body>
+</html>

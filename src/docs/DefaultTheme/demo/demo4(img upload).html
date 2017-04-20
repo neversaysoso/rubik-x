@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titlebar = rbk.getCmp('titlebar');
+				titlebar.title('上传图片demo');
+				var imgfile = rbk.getCmp('imgfile');
+				var actsheet = rbk.getCmp('actsheet');
+				var btn = rbk.getCmp('btn');
+				
+				actsheet.selCallback = function(shell){
+					switch(shell.id()){
+						case "camera":rbk.platform.accessCamera(function(me){
+							imgfile.addImg(me.imageUrl)
+						})
+						break;
+						case "gallery":rbk.platform.accessGallery(function(me){
+							imgfile.addImg(me.imageUrl)
+						})
+						break;
+					}
+				};
+				
+				//设置最多图片数
+				imgfile.setSize(3);
+				//点击加号方法绑定
+				imgfile.bindClick(function(cmp){
+					actsheet.switch()
+				})
+				//添加图片方法
+				imgfile.addImg("../../../docs/images/img102.jpg");
+				//图片点击事件绑定
+				imgfile.bindItemClick(function(me){
+					var raw = me.raw;
+					confirm('确认删除图片'+raw.url+'?',function(){
+						$(me.dom).remove();
+					})
+				})
+				
+				btn.bindClick(function(){
+					//获取图片url列表
+					alert(imgfile.getVal())
+				})
+				
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<div class="rbk-imgfile">
+				<img src="../../../docs/images/img101.jpg"/>
+				<img src="../../../docs/images/img102.jpg"/>
+				<img src="../../../docs/images/img11.jpg"/>
+			</div>
+			<button class='rbk-btn'>获取图片列表</button>
+		</div>
+		<div class="rbk-actsheet">
+			<ul class="rbk-table-view">
+				<li id="camera" class="rbk-table-view-cell">拍照</li>
+				<li id="gallery" class="rbk-table-view-cell">访问相册</li>
+			</ul>
+			<ul class="rbk-table-view">
+				<li class="rbk-table-view-cell">取消</li>
+			</ul>
+		</div>
+	</body>
+</html>

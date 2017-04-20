@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="viewport" content="width=device-width"/>
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+		
+		<script>
+			var formDemo = [{
+				id: 'sectionName1',
+				labelName: '科室名称',
+				ctype: 'frmlbl',
+				defValue: '666',
+				options: [],
+				//所在容器控件ID 默认可以忽略默认直接在form下
+				ctnCmpID: 'userinfo'
+			}, {
+				id: 'docName',
+				labelName: 'label组件',
+				ctype: 'frmlbl',
+				defValue: '',
+				options: [],
+				//所在容器控件ID 默认可以忽略默认直接在form下
+				ctnCmpID: 'docinfo',
+				//label组件可以配色
+				color:'orange'
+			}, {
+				id: 'username222',
+				labelName: '地址',
+				ctype: 'frmtxt',
+				defValue: '',
+				options: [],
+				//所在容器控件ID 默认可以忽略默认直接在form下
+				ctnCmpID: 'docinfo',
+				placeholder: "扫码",
+				hasCode:true
+			}, {
+				id: 'username',
+				labelName: '患者姓名',
+				ctype: 'frmtxt',
+				defValue: '',
+				options: [],
+				//所在容器控件ID 默认可以忽略默认直接在form下
+				ctnCmpID: 'userinfo',
+				color:'#11ddee'
+			}, {
+				id: 'code',
+				labelName: '验证码',
+				ctype: 'frmtxt',
+				defValue: '',
+				options: [],
+				//所在容器控件ID 默认可以忽略默认直接在form下
+				ctnCmpID: 'userinfo',
+				hasBtn:'获取验证码'
+			}, {
+				id: 'times',
+				labelName: '选时间',
+				ctype: 'frmtxt',
+				defValue: '',
+				options: [],
+				//所在容器控件ID 默认可以忽略默认直接在form下
+				ctnCmpID: 'userinfo',
+				timetext : true,
+				placeholder: "点击选择时间"
+			}, {
+				id: 'times1',
+				labelName: '选时间1',
+				ctype: 'frmtxt',
+				defValue: '2012-12-11',
+				options: [],
+				//所在容器控件ID 默认可以忽略默认直接在form下
+				ctnCmpID: 'userinfo',
+				timetext : true,
+				placeholder: "点击选择时间"
+			}, {
+				id: 'times2',
+				labelName: '选时间2',
+				ctype: 'frmtxt',
+				defValue: '',
+				options: [],
+				//所在容器控件ID 默认可以忽略默认直接在form下
+				ctnCmpID: 'userinfo',
+				clocktext : true,
+				placeholder: "点击选择时间"
+			}, {
+				id: 'times3',
+				labelName: '选时间3',
+				ctype: 'frmtxt',
+				defValue: '15:30',
+				options: [],
+				//所在容器控件ID 默认可以忽略默认直接在form下
+				ctnCmpID: 'userinfo',
+				clocktext : true,
+				placeholder: "点击选择时间"
+			}, {
+				id: 'sex2',
+				labelName: '性别2',
+				ctype: 'frmrdgrp',
+				defValue: '1',
+				options: [{
+					name: '其他',
+					val: '0'
+				}, {
+					name: '女',
+					val: '-1'
+				}, {
+					name: '男',
+					val: '1'
+				}],
+				ctnCmpID: 'userinfo'
+			}, {
+				id: 'cardinfo',
+				labelName: '卡类型',
+				ctype: 'frmrdgrp',
+				defValue: '0',
+				options: [{
+					name: '门诊卡',
+					val: '1'
+				}, {
+					name: '住院卡',
+					val: '0'
+				}, {
+					name: '医保卡',
+					val: '2'
+				}],
+				ctnCmpID: 'userinfo',
+				//outline风格radio
+				role:'outline'
+			}, {
+				id: 'time',
+				labelName: '就诊时间',
+				ctype: 'frmsel',
+				defValue: {
+					text: '上午',
+					value: '1'
+				},
+				options: [{
+					text: '上午',
+					value: '1'
+				}, {
+					text: '下午',
+					value: '2'
+				}, {
+					text: '全天',
+					value: '3'
+				}, {
+					text: '夜晚',
+					value: '4'
+				}],
+				ctnCmpID: 'docinfo'
+			}, {
+				id: 'time2',
+				labelName: '时间',
+				ctype: 'frmsel',
+				defValue: {
+					text: '上',
+					value: '1'
+				},
+				options: [{
+					text: '上',
+					value: '1'
+				}, {
+					text: '全',
+					value: '2'
+				}, {
+					text: '夜',
+					value: '3'
+				}, {
+					text: '夜',
+					value: '4'
+				}, {
+					text: '夜',
+					value: '5'
+				}],
+				ctnCmpID: 'docinfo'
+			}, {
+				id: 'lasttext',
+				labelName: '输入框',
+				ctype: 'frmtxt',
+				defValue: '',
+				options: [],
+				//所在容器控件ID 默认可以忽略默认直接在form下
+				ctnCmpID: 'userinfo'
+			}];
+			var formDemoVal = {
+				sectionName: '这是label组件',
+				docName: '这是label组件',
+				time: {
+					text: '全天',
+					value: '3'
+				},
+				sex: 0,
+				username: '这是输入框组件',
+				bookfree: '20元'
+			}
+			rbk.ready(function(opt){
+				var titleBar = rbk.getCmp("titlebar");
+				titleBar.title("配置完整表单");
+				titleBar.canBack(true,true);
+				
+				var content = rbk.getCmp('content');
+				var form = content.down('form');
+				form.doLayout(formDemo);
+				form.setVal(formDemoVal);
+				
+				var yybtn = content.down("#yybtn");
+				yybtn.bindClick(function(){
+					alert(form.getVal())
+				});
+				//表单按钮事件绑定
+				form.bindBtnClick('code',function(me){
+					console.log(me)
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<form class="rbk-form">
+				<div id="docinfo" class="rbk-cmp">
+					<div class="rbk-subtitle">医生信息</div>
+				</div>
+				<div id="userinfo" class="rbk-cmp">
+					<div class="rbk-subtitle">患者信息</div>
+				</div>
+			</form>
+			<button id="yybtn" class="rbk-btn">确认预约</button>
+		</div>
+	</body>
+</html>

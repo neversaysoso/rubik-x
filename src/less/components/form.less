@@ -1,0 +1,543 @@
+/*.rbk-grid-9*/
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: @font-color-4;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: @font-color-4;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: @font-color-4;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: @font-color-4;
+}
+.rbk-form{
+    div{
+        position: relative;
+        z-index: 1;
+    }
+    &.rbk-card{
+        //border: @outline-color solid 1px;
+    }
+    &.rbk-right{
+        .rbk-frmlbl{
+            .color-gray{
+                text-align: right;
+            }
+        }
+    }
+    .rbk-frmlbl{
+        height: 50px;
+        overflow: hidden;
+        padding: 10px 15px;
+        line-height: 30px;
+        &>label{
+            color: @font-color-2;
+            display: inline-block;
+            float: left;
+            margin: 0px;
+            padding: 0px;
+            font-size: @fontsize-normal;
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            width: 80px;
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .color-gray{
+            color: @font-color-1;
+            float: right;
+            text-align: left;
+            display: block;
+            width: 100%;
+            padding-left: 80px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: @fontsize-normal;
+        }
+        &.rbk-orange .color-gray{
+            color: @color-orange;
+        }
+        .frmact{
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            &.color-gray{
+                text-align: left;
+            }
+            &:before{
+                font-family: 'rbkmark';
+                content: '\e906';
+                font-size: 12px;
+                color: @font-color-3;
+                position: absolute;
+                right: 0px;
+            }
+        }
+    }
+    .rbk-frmsel{
+        padding: 10px 15px;
+        font-size: @fontsize-normal;
+        line-height: 30px;
+        overflow: hidden;
+        height: 50px;
+        &>label{
+            color: @font-color-2;
+            display: inline-block;
+            float: left;
+            margin: 0px;
+            padding: 0px;
+            font-size: @fontsize-normal;
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            width: 80px;
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            z-index: 10;
+        }
+        .rbk-select{
+            border: none;
+            height: 30px;
+            line-height: 30px;
+            text-align: left;
+            padding: 0px;
+            color: @font-color-1;
+            width: 100%;
+            text-align: left;
+            padding-right: 18px;
+            position: relative;
+            padding-left: 80px;
+            font-size: @fontsize-normal;
+            .rbk-icon-arrowdown{
+                line-height: 30px;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                color: @font-color-3;
+                &:before{
+                    font-family: 'rbkmark';
+                    content: '\e906';
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    .rbk-frmtxtarea{
+        margin-top: -1px;
+        padding: 10px 15px;
+        &>label{
+            color: @font-color-2;
+            font-size: @fontsize-normal;
+            font-weight: normal;
+            display: block;
+            background-color: #fafafa;
+            padding: 11px 15px 10px;
+            height: 42px;
+            position: relative;
+            float: none;
+            margin: -10px -15px 10px;
+            &:after{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 1px;
+                content: '';
+                background-color: #e5e5e5;
+                -webkit-transform: scaleY(.5);
+                transform: scaleY(.5);
+            }
+            &:before{
+                position: absolute;
+                right: 0;
+                top: 0;
+                left: 0;
+                height: 1px;
+                content: '';
+                background-color: #c8c7cc;
+                -webkit-transform: scaleY(.5);
+                transform: scaleY(.5);
+            }
+        }
+        textarea{
+            height: 60px;
+            line-height: 20px;
+            padding: 0px;
+            color: @font-color-1;
+            font-size: @fontsize-normal;
+        }
+    }
+    .rbk-frmrdgrp{
+        &.rbk-outline{
+            margin-top: -1px;
+            padding: 0px;
+            &>label{
+                color: @font-color-2;
+                font-size: @fontsize-normal;
+                font-weight: normal;
+                display: block;
+                background-color: #fafafa;
+                padding: 11px 15px 10px;
+                height: 42px;
+                position: relative;
+                float: none;
+                &:after{
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    height: 1px;
+                    content: '';
+                    background-color: #e5e5e5;
+                    -webkit-transform: scaleY(.5);
+                    transform: scaleY(.5);
+                }
+                &:before{
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    left: 0;
+                    height: 1px;
+                    content: '';
+                    background-color: #c8c7cc;
+                    -webkit-transform: scaleY(.5);
+                    transform: scaleY(.5);
+                }
+            }
+            .rbk-cmp{
+                display: block;
+                width: 100%;
+                float: left;
+                padding: 0px 15px;
+                .rbk-radio{
+                    float: left;
+                    position: relative;
+                    padding: 0px;
+                    width: 100%;
+                    height: 50px;
+                    line-height: 50px;
+                    label{
+                        display: block;
+                        float: left;
+                        width: 100%;
+                        height: 50px;
+                        line-height: 50px;
+                        margin-left: 0px;
+                    }
+                    &:after{
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        height: 1px;
+                        content: '';
+                        background-color: #e5e5e5;
+                        -webkit-transform: scaleY(.5);
+                        transform: scaleY(.5);
+                        width: 100%;
+                    }
+                    &:last-child{
+                        &:after{
+                            height: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        padding: 15px;
+        font-size: @fontsize-normal;
+        line-height: 20px;
+        overflow: hidden;
+        &>label{
+            color: @font-color-2;
+            display: inline-block;
+            margin: 0px;
+            padding: 0px;
+            font-size: @fontsize-normal;
+            float: left;
+            height: 20px;
+            line-height: 20px;
+        }
+        .rbk-cmp{
+            display: block;
+            width: auto;
+            float: right;
+            padding: 0px;
+            color: @font-color-1;
+            .rbk-radio{
+                float: right;
+                position: relative;
+                height: 20px;
+                line-height: 20px;
+                overflow: visible;
+                label{
+                    display: inline-block;
+                    float: left;
+                    width: auto;
+                    height: 20px;
+                    line-height: 20px;
+                    overflow: visible;
+                    padding-left: 33px;
+                    margin-left: 6px;
+                    input[type=checkbox],input[type=radio]{
+                        left: 5px;
+                        margin-top: -14px;
+                    }
+                }
+                &:after{
+                    height: 0px;
+                    width: 0px;
+                }
+            }
+        }
+    }
+    .rbk-frmtxt{
+        &.rbk-codelabel{
+            height: 60px;
+            padding: 14px 15px;
+            label{
+                display: none;
+            }
+            input[type=text],input[type=password],input[type=tel]{
+                float: left;
+                padding: 6px 8px;
+                width: 120px;
+                height: 32px;
+                line-height: 20px;
+                text-align: left;
+                background: #ededed;
+                border-radius: 3px;
+            }
+            .rbk-btn{
+                float: left;
+                border: none;
+                height: 32px;
+                line-height: 32px;
+                padding: 0px;
+                margin: 0px;
+                margin-left: 15px;
+                color: @style-color;
+                width: auto;
+                &:active{
+                    color: @style-color*0.8;
+                }
+            }
+        }
+        &.rbk-hasbtn {
+            .rbk-btn{
+                position: absolute;
+                right: 15px;
+                top: 8px;
+                min-width: 80px;
+                color: @style-color;
+                border-color: @style-color;
+                padding: 8px 10px;
+                width: auto;
+                line-height: 14px;
+            }
+            input[type=text],input[type=password],input[type=tel]{
+                padding-right: 100px;
+                text-align: left;
+                color: @font-color-1;
+            }
+            &.rbk-hasimg{
+                .rbk-btn{
+                    top: 12px;
+                }
+                input[type=text],input[type=password],input[type=tel]{
+                    padding-right: 100px;
+                    text-align: left;
+                    color: @font-color-1;
+                }
+            }
+        }
+        .rbk-code-input{
+            display: block;
+            padding: 0px;
+            margin: 0px;
+            height: 22px;
+            width: 22px;
+            position: absolute;
+            right: 15px;
+            top: 12px;
+            border: none;
+            &:before{
+                font-family: 'rbkmark';
+                content: '\e902';
+                font-size: 22px;
+                color: @color-orange;
+            }
+        }
+        &.rbk-hascode.rbk-input-row label{
+            &~input[type=text],~input[type=password],~input[type=tel]{
+                width: 100%;
+                padding-right: 30px;
+            }
+        }     
+        &.rbk-hasimg{
+            .rbk-code-input{
+                top: 15px;
+            }
+            padding: 13px 15px;
+            height: 56px;
+            &>label{
+                color: @font-color-2;
+                display: inline-block;
+                float: left;
+                margin: 0px;
+                padding: 0px;
+                font-size: @fontsize-normal;
+                float: left;
+                height: 30px;
+                line-height: 30px;
+                position: relative;
+                padding-left: 30px;
+                position: absolute;
+                top: 13px;
+                left: 15px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 90px;
+                &:before{
+                    content: "";
+                    color: @font-color-img;
+                    font-family: 'rbkmark';
+                    font-size: 20px;
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                }
+            }
+            &.rbk-headtext{
+                label:before{
+                    content: '\e913';
+                }
+            }
+            &.rbk-codetext{
+                label:before{
+                    content: '\e917';
+                }
+            }
+            &.rbk-phonetext{
+                label:before{
+                    content: '\e915';
+                }
+            }
+            &.rbk-passwordtext{
+                label:before{
+                    content: '\e90f';
+                }
+            }
+            input[type=text],input[type=password],input[type=tel]{
+                width: 100%;
+                padding: 5px 0px 5px 90px;
+                text-align: left;
+                line-height: 20px;
+                height: 30px;
+                color: @font-color-1;
+                font-size: @fontsize-normal;
+            }
+            &.rbk-input-row:after{
+                width: 100%;
+                left: 45px;
+            }
+        }
+        
+        padding: 10px 15px;
+        font-size: @fontsize-normal;
+        line-height: 20px;
+        overflow: hidden;
+        height: 50px;
+        &>label{
+            color: @font-color-2;
+            display: inline-block;
+            float: left;
+            margin: 0px;
+            padding: 0px;
+            font-size: @fontsize-normal;
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            width: 80px;
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        input[type=text],input[type=password],input[type=tel]{
+            &.rbk-timetext{
+                color: @color-yellow;
+                &:disabled{
+                    color: @color-yellow;
+                    opacity: 1;
+                }
+            }
+            width: 100%;
+            padding: 5px 0px 5px 80px;
+            float: right;
+            text-align: left;
+            height: 30px;
+            color: @font-color-1;
+            font-size: @fontsize-normal;
+            line-height: 20px;
+        }
+        
+    }
+    .rbk-table-view-cell:after{
+        width: 100%;
+        left: 15px;
+    }
+    .rbk-input-row:after{
+        width: 100%;
+        left: 15px;
+    }
+}
+.rbk-frmact{
+    opacity: 0;
+    position: fixed;
+    bottom: 0px;
+    height: auto;
+    width: 100%;
+    background: @body-back;
+    z-index: 1000;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    transition: transform .3s, opacity .3s;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    &.rbk-active{
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    .rbk-table-view{
+        margin: 0px;
+        text-align: center;
+        border-radius: 0px;
+        background: #FFFFFF;
+        color: @font-color-1;
+        margin-bottom: 8px;
+        max-height: 360px;
+        overflow: auto;
+        
+        &:last-child{
+            margin-bottom: 0px;
+            color: @font-color-2;
+        }
+    }
+}

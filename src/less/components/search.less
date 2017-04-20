@@ -1,0 +1,164 @@
+.rbk-search{
+    padding: 10px;
+    margin: 0px;
+    position: relative;
+    &[psize="0"]{
+        &:after{
+            -webkit-transform: translate(-12px,-50%);
+            transform: translate(-12px,-50%);
+        }
+    }
+    &[psize="1"]{
+        &:after{
+            -webkit-transform: translate(-18px,-50%);
+            transform: translate(-18px,-50%);
+        }
+    }
+    &[psize="2"]{
+        &:after{
+            -webkit-transform: translate(-24px,-50%);
+            transform: translate(-24px,-50%);
+        }
+    }
+    &[psize="3"]{
+        &:after{
+            -webkit-transform: translate(-30px,-50%);
+            transform: translate(-30px,-50%);
+        }
+    }
+    &[psize="4"]{
+        &:after{
+            -webkit-transform: translate(-36px,-50%);
+            transform: translate(-36px,-50%);
+        }
+    }
+    &[psize="5"]{
+        &:after{
+            -webkit-transform: translate(-42px,-50%);
+            transform: translate(-42px,-50%);
+        }
+    }
+    &[psize="6"]{
+        &:after{
+            -webkit-transform: translate(-48px,-50%);
+            transform: translate(-48px,-50%);
+        }
+    }
+    &[psize="7"]{
+        &:after{
+            -webkit-transform: translate(-54px,-50%);
+            transform: translate(-54px,-50%);
+        }
+    }
+    &[psize="8"]{
+        &:after{
+            -webkit-transform: translate(-60px,-50%);
+            transform: translate(-60px,-50%);
+        }
+    }
+    &[psize="9"]{
+        &:after{
+            -webkit-transform: translate(-66px,-50%);
+            transform: translate(-66px,-50%);
+        }
+    }
+    &[psize="10"]{
+        &:after{
+            -webkit-transform: translate(-72px,-50%);
+            transform: translate(-72px,-50%);
+        }
+    }
+    &[psize="11"]{
+        &:after{
+            -webkit-transform: translate(-78px,-50%);
+            transform: translate(-78px,-50%);
+        }
+    }
+    &[psize="12"]{
+        &:after{
+            -webkit-transform: translate(-84px,-50%);
+            transform: translate(-84px,-50%);
+        }
+    }
+    &[psize="13"]{
+        &:after{
+            -webkit-transform: translate(-90px,-50%);
+            transform: translate(-90px,-50%);
+        }
+    }
+    &[psize="14"]{
+        &:after{
+            -webkit-transform: translate(-96px,-50%);
+            transform: translate(-96px,-50%);
+        }
+    }
+    &[psize="15"]{
+        &:after{
+            -webkit-transform: translate(-102px,-50%);
+            transform: translate(-102px,-50%);
+        }
+    }
+    &:after{
+        font-family: 'rbkmark';
+        content: '\e933';
+        position: absolute;
+        font-size: 15px;
+        top: 50%;
+        left: 50%;
+        color: @font-color-4;
+        -webkit-transform: translate(-50px,-50%);
+        transform: translate(-50px,-50%);
+    }
+    .rbk-searchinput{
+        border: none;
+        margin: 0px;
+        border-radius: 3px;
+        line-height: 20px;
+        padding: 5px 10px;
+        height: 30px;
+        font-size: 12px;
+        text-align: center;
+        color: @font-color-1;
+        padding-left: 30px;
+        &:focus{
+            text-align: left;
+        }
+    }
+    &.rbk-focus{
+        .icon-xx{
+            display: block
+        }
+        &:after{
+            left: 68px;
+            -webkit-transform: translate(-50px,-50%);
+            transform: translate(-50px,-50%);
+        }
+    }
+    &.rbk-hasv{
+        .icon-xx{
+            display: block
+        }
+        .rbk-searchinput{
+            text-align: left;
+        }
+        &:after{
+            left: 68px;
+            -webkit-transform: translate(-50px,-50%);
+            transform: translate(-50px,-50%);
+        }
+    }
+    .icon-xx{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: @font-color-4;
+        display: none;
+        height: 30px;
+        width: 30px;
+        &:before{
+            position: absolute;
+            right: 8px;
+            top: 7px;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+		
+		<script>
+			rbk.ready(function(opt){
+				var titleBar = rbk.getCmp("titlebar");
+				titleBar.title("完整表单");
+				titleBar.canBack(true,true);
+				
+				var content = rbk.getCmp('content');
+				var form = content.down('form');
+				form.doLayout(testData.formDemo);
+				form.setVal(testData.formDemoVal);
+				
+				var yybtn = content.down("#yybtn");
+				yybtn.bindClick(function(){
+					alert(form.getVal())
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<form class="rbk-form">
+				<div id="docinfo" class="rbk-cmp">
+					<div class="rbk-subtitle" rbk-role="leftcolor">医生信息</div>
+				</div>
+				<div id="userinfo" class="rbk-cmp">
+					<div class="rbk-subtitle" rbk-role="leftcolor">患者信息</div>
+				</div>
+			</form>
+			<button id="yybtn" class="rbk-btn">确认预约</button>
+		</div>
+	</body>
+</html>

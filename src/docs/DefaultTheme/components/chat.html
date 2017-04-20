@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+		
+		<!--<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/libs/touch.min.js"></script>
+		
+		<script type="text/javascript" src="../../../js/components/rbk-base.js"></script>
+		<script type="text/javascript" src="../../../js/components/layer.js"></script>
+		<script type="text/javascript" src="../../../js/components/rbk-platform.js"></script>
+		<script type="text/javascript" src="../../../js/components/rbk-chat.js"></script>
+		<script type="text/javascript" src="../../../js/components/rbk-chatitem.js"></script>
+		<script type="text/javascript" src="../../../js/components/rbk-chatform.js"></script>
+		
+		<link rel="stylesheet" href="../../../css/rbk-v1.3.0.min.css"></link>
+		
+		<script type="text/javascript" src="../../testdata.js"></script>-->
+		
+		<script type="text/javascript">
+			var csjson = [{
+				type:'self',
+				text:'哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈',
+				headImg:'../../../images/basic/head-default.png',
+				name:'gege',
+				time:'9:02'
+			},{
+				type:'self',
+				headImg:'../../../images/basic/head-default.png',
+				imgurl:'../../../images/basic/head-default.png',
+				time:'9:08'
+			},{
+				type:'system',
+				text:'9:10'
+			},{
+				text:'哈哈哈哈哈',
+				headImg:'../../../images/basic/head-default-normal.png',
+				name:'gege',
+				time:'10:10'
+			},{
+				text:'哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈',
+				headImg:'../../../images/basic/head-default-normal.png',
+				name:'gege',
+				time:'11:10'
+			},{
+				text:'哈哈哈哈哈',
+				headImg:'../../../images/basic/head-default-normal.png',
+				name:'gege'
+			},{
+				headImg:'../../../images/basic/head-default-normal.png',
+				name:'gege',
+				imgurl:'http://resources.rubik-x.ucmed.cn/v1.3.0/images/example/head01.png',
+				time:'11:20'
+			},{
+				text:'哈哈哈哈哈',
+				headImg:'../../../images/basic/head-default-normal.png',
+				name:'gege',
+				time:'12:10'
+			},{
+				type:'self',
+				text:'哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈',
+				headImg:'../../../images/basic/head-default.png',
+				name:'gege'
+			}]
+			rbk.ready(function(opt) {
+				var chat = rbk.getCmp('chat');
+				chat.title('聊天');
+				chat.doLayout(csjson);
+				chat.doLayoutBefore(csjson);
+				
+				chat.addMsg({
+					type:'self',
+					text:'哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈新加的',
+					headImg:'../../../images/basic/head-default.png',
+					name:'gege'
+				})
+				//发送事件绑定
+				chat.bindMsgFunc('我','../../../images/basic/head-default.png',function(msg,time){
+					console.log(msg);
+					/*chat.addMsg({
+						type:'system',
+						text:'发送失败'
+					})*/
+				});
+				//绑定功能项
+				chat.bindOffeFunc('拍照','../../../images/basic/camera.jpg','pz',function(){
+					rbk.platform.accessCamera(function(me){
+						chat.addMsg({
+							type:'self',
+							headImg:'../../../images/basic/head-default.png',
+							imgurl:me.imageUrl
+						})
+					})
+				});
+				chat.bindOffeFunc('相册','../../../images/basic/gallery.jpg','fwxc',function(){
+					rbk.platform.accessGallery(function(me){
+						chat.addMsg({
+							type:'self',
+							headImg:'../../../images/basic/head-default.png',
+							imgurl:me.imageUrl
+						})
+					})
+				});
+				
+				//收到推送事件绑定
+				rbk.getAppMsg(function(callback){
+					console.log('收到推送:'+callback);
+				});
+				getJson();
+				//头像点击事件绑定
+				chat.bindHeadClick(function(itemCmp){
+					alert(itemCmp.raw)
+				});
+				//聊天内容点击事件绑定
+				chat.bindMsgClick(function(itemCmp){
+					if(!!itemCmp.raw.imgurl){
+						console.log(itemCmp.raw.imgurl);
+						return;
+					}
+					alert(itemCmp.raw.text)
+				})
+				var scroll = rbk.getCmp('scroll');
+				var canscroll = 0;
+				scroll.scrollDown(function(){
+					setTimeout(function(){
+						/*chat.addBeforeMsg({
+							type:'self',
+							text:'不错啊，这么帅，约一个？',
+							headImg:'../../../images/basic/head-default.png',
+							name:'gege',
+							time:'19:20'
+						});
+						chat.addBeforeMsg({
+							headImg:'../../../images/basic/head-default.png',
+							name:'gege',
+							time:'19:20',
+							imgurl:'http://resources.rubik-x.ucmed.cn/v1.3.0/images/example/head01.png'
+						});
+						chat.addBeforeMsg({
+							type:'self',
+							text:'帅哥，头像发一张给我看看',
+							headImg:'../../../images/basic/head-default.png',
+							name:'gege',
+							time:'19:20'
+						});*/
+						
+						chat.doLayoutBefore([{
+							type:'self',
+							text:'帅哥，头像发一张给我看看',
+							headImg:'../../../images/basic/head-default.png',
+							name:'gege',
+							time:'19:20'
+						},{
+							headImg:'../../../images/basic/head-default.png',
+							name:'gege',
+							time:'19:20',
+							imgurl:'http://resources.rubik-x.ucmed.cn/v1.3.0/images/example/head01.png'
+						},{
+							type:'self',
+							text:'不错啊，这么帅，约一个？',
+							headImg:'../../../images/basic/head-default.png',
+							name:'gege',
+							time:'19:20'
+						}])
+						scroll.refresh();
+						canscroll++;
+						if(canscroll>0){
+							scroll.scrollDownEnd();
+						}
+					},2000);
+				},'下拉查看更多聊天记录');
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div class='rbk-chat'>
+		</div>
+	</body>
+</html>

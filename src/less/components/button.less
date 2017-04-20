@@ -1,0 +1,131 @@
+.rbk-btn-block{
+    display: block;
+    width: 94%;
+    padding: 12px 0;
+    margin-bottom: 10px;
+    font-size: @fontsize-btn;
+    margin: 30px 3%;
+    line-height: 20px;
+    border-radius: 4px;
+}
+.rbk-btn{
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+    &.rbk-btn-primary{
+        background: @style-color;
+        border-color: @style-color;
+        color: #fff;
+        &:active{
+            background: @style-color*0.6;
+            opacity: 0.8;
+        }
+        &[disabled]:active{
+            background: @style-color;
+            opacity: 0.4;
+        }
+    }
+    &.rbk-btn-red{
+        background: @color-red;
+        border-color: @color-red;
+        color: #fff;
+        &:active{
+            background: @color-red*0.6;
+            opacity: 0.8;
+        }
+        &[disabled]:active{
+            background: @color-red;
+            opacity: 0.4;
+        }
+    }
+    &.rbk-btn-orange{
+        background: @color-orange;
+        border-color: @color-orange;
+        color: #fff;
+        &:active{
+            background: @color-orange*0.6;
+            opacity: 0.8;
+        }
+        &[disabled]:active{
+            background: @color-orange;
+            opacity: 0.4;
+        }
+    }
+    &.rbk-btn-yellow{
+        background: @color-yellow;
+        border-color: @color-yellow;
+        color: #fff;
+        &:active{
+            background: @color-yellow*0.6;
+            opacity: 0.8;
+        }
+        &[disabled]:active{
+            background: @color-yellow;
+            opacity: 0.4;
+        }
+    }
+    &.rbk-btn-outlined{
+        border-color: @line-color;
+        background-color: #fff;
+        color: @color-orange;
+        &.rbk-gray{
+            color: @font-color-1;
+            &:active{
+                background: @body-back;
+                color: @font-color-1;
+                opacity: 0.8;
+            }
+        }
+        &.rbk-prm{
+            color: #1c98fc;
+            &:active{
+                background: #cbe8ff;
+                color: #1c98fc;
+                opacity: 0.8;
+            }
+        }
+        &:active{
+            background: #ffe2d8;
+            color: @color-orange;
+            opacity: 0.8;
+        }
+        &[disabled]:active{
+            background-color: #fff;
+            opacity: 0.4;
+        }
+    }
+}
+input[type='button']:disabled, input[type='button'].rbk-disabled, input[type='submit']:disabled, input[type='submit'].rbk-disabled, input[type='reset']:disabled, input[type='reset'].rbk-disabled, button:disabled, button.rbk-disabled, .rbk-btn:disabled, .rbk-btn.rbk-disabled{
+    opacity: 0.4;
+}
+.rbk-btn-yyxz{
+    right: 10px;
+    top: -2px;
+    padding: 2px 10px;
+    line-height: 20px;
+}
+.rbk-input-row .rbk-cselect{
+    border-width: 0;
+    width: 65%;
+    text-align: right;
+}
+
+.rbk-table-view-cell.rbk-frmlbl label{
+    float: left;
+    width: 35%;
+    /*padding: 10px 15px;*/
+    font-family: "Helvetica Neue",Helvetica,sans-serif;
+    line-height: 1.1;
+}
+
+.rbk-radio input[type=radio]::before{
+    /*color: red;*/
+}
+
+.rbk-bar .rbk-btn-nav{
+    img{
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 7px;
+    }
+}

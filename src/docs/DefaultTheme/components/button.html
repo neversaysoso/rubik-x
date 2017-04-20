@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+		
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('按钮');
+				titleBar.canBack(true, true);
+				var content = rbk.getCmp('content');
+				var btn = content.down('btn');
+				btn.bindClick(function(btn) {
+					btn.text('按钮被点击');
+				});
+				
+				var mapBtn = content.down('#mapbtn');
+				mapBtn.setIcon('rbk-icon-down');
+				var mailBtn = content.down('#mailbtn');
+				mailBtn.setIcon('rbk-icon-arrowdown',true);
+			});
+		</script>
+		<style>
+			.rbk-btn{
+				margin-left: 3%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<!--<p>默认按钮（带点击事件并动态设置按钮文本）</p>-->
+			<button class="rbk-btn">按钮</button>
+			<button class="rbk-btn" rbk-role="red">按钮红</button>
+			<button class="rbk-btn" rbk-role="orange" disabled="disabled">按钮橘</button>
+			<button class="rbk-btn" rbk-role="yellow">按钮黄</button>
+			<button class="rbk-btn" rbk-role="outgray">按钮边框</button>
+			<button class="rbk-btn" rbk-role="outnormal">按钮边框</button>
+			<button class="rbk-btn" rbk-role="outred">按钮边框</button>
+			<!--<p>样式为mini的按钮，非block模式</p>-->
+			<button class="rbk-btn" rbk-role="mini">按钮</button>
+			<button class="rbk-btn" rbk-role="minired">按钮</button>
+			<button class="rbk-btn" rbk-role="miniorange">按钮</button>
+			<button class="rbk-btn" rbk-role="miniyellow">按钮</button><br/>
+			<button class="rbk-btn" rbk-role="minioutgray" style="margin-top: 20px;">按钮</button>
+			<button class="rbk-btn" rbk-role="minioutnormal" style="margin-top: 20px;">按钮</button>
+			<button class="rbk-btn" rbk-role="minioutred" style="margin-top: 20px;">按钮</button>
+			<button id="mailbtn" class="rbk-btn" rbk-role="mini" style="margin-top: 20px;">按钮 </button>
+			<!--<p>带图标按钮:第一个静态，第二个为动态并在右测</p>-->
+			<button id="mapbtn" class="rbk-btn" rbk-role="">地图按钮</button>
+		</div>
+	</body>
+</html>

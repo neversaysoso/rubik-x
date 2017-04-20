@@ -1,0 +1,1 @@
+{"R":200,"M":"成功","I":"成功","list":[{"id":"3","title":"本院竭诚为您服务","imgurl":"http://jump.rubik.zwjk.com/hospital/626/20150721/1437469425562.png"},{"id":"2","title":"本院竭诚为您服务","imgurl":"http://jump.rubik.zwjk.com/hospital/626/20150721/1437469403900.png"},{"id":"1","title":"本院竭诚为您服务","imgurl":"http://jump.rubik.zwjk.com/hospital/626/20150721/1437469350783.png"}],"T":190}

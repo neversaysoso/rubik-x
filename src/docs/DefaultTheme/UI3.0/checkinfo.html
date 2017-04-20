@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<!-- build:css -->
+		<link rel="stylesheet/less" href="../../../less/appstyle.less"></link>
+		<script type="text/javascript" src="../../../js/libs/libignore/less.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js -->
+		<script type="text/javascript" src="../../../js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/rbk-v1.3.0.min.js"></script>
+		<!-- endbuild -->
+		<script type="text/javascript" src="../../testdata.js"></script>
+
+		<script type="text/javascript">
+			rbk.ready(function(opt) {
+				var titleBar = rbk.getCmp('titlebar');
+				titleBar.title('检查单详情');
+				titleBar.canBack(true, true);
+				
+				var content = rbk.getCmp('content');
+				var list = content.down('list');
+				list.doLayout(testData.UI2checkInfo.base);
+				
+				var list2 = content.down('#info');
+				list2.doLayout(testData.UI2checkInfo.info);
+				
+				var list3 = content.down('#jg');
+				list3.doLayout(testData.UI2checkInfo.jg);
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="rbk-titlebar"></header>
+		<div class="rbk-content">
+			<div class="rbk-list rbk-reporthead">
+				<div class="rbk-listitem" tpl="tpl">
+					{name}：<span class="lite">{value}</span>
+				</div>
+			</div>
+			<div class="rbk-list rbk-checkInfo" id='info'>
+				<div class='rbk-subtitle'>结果</div>
+			</div>
+			<div class="rbk-list rbk-checkInfo" id='jg'>
+				<div class='rbk-subtitle'>结论</div>
+			</div>
+		</div>
+	</body>
+</html>
